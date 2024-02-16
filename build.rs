@@ -1,7 +1,7 @@
 use std::env;
 use std::path::PathBuf;
 
-//  Build C shared library
+//  Build C static library
 fn build_my_c_lib() {
     // Tell Cargo that if the given file changes, to rerun this build script.
     println!("cargo:rerun-if-changed=my_c_lib/src/my_c_lib.h,my_c_lib/src/my_c_lib.c");
@@ -15,14 +15,14 @@ fn build_my_c_lib() {
 }
 
 fn main() {
-    // First, rebuild C shared library
+    // First, rebuild C static library
     build_my_c_lib();
 
-    // Tell cargo to look for shared libraries in the specified directory
+    // Tell cargo to look for libraries in the specified directory
     println!("cargo:rustc-link-search=./my_c_lib/lib");
 
     // Tell cargo to tell rustc to link
-    // the "my_c_lib" shared library.
+    // the "my_c_lib" static library.
     println!("cargo:rustc-link-lib=my_c_lib");
 
     // The bindgen::Builder is the main entry point
