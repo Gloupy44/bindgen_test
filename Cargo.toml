@@ -1,0 +1,15 @@
+[package]
+name = "bindgen_test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+bindgen = "0.69.4"
+
+# Compiler dependency if we want to build the "my_c_lib.so" from build.rs
+cc = "1.0.83"
+
+[dependencies]
+
