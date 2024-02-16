@@ -7,7 +7,6 @@ fn build_my_c_lib() {
     println!("cargo:rerun-if-changed=my_c_lib/src/my_c_lib.h,my_c_lib/src/my_c_lib.c");
     // Use the `cc` crate to build a C file and statically link it.
     cc::Build::new()
-        .pic(true)
         .static_flag(true)
         .include("./my_c_lib/include")
         .file("my_c_lib/src/my_c_lib.c")
